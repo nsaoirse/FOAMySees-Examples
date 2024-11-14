@@ -1,0 +1,15 @@
+export FYS_inputFilesLocation="src"
+export FYS_isPartOfHydro="Yes"
+export FYS_HydrojsonFile="input.json"
+export FYS_OpenSeesPyModelFile="OpenSeesModel.py"
+export FYS_Nprocessors=2
+export FYS_OpenFOAMSolver="olaFlow"
+export FYS_configurationFileName="precice-config.xml"
+export FYS_nameOfCoupledPatchOrSurfaceFile="interface"
+export FYS_useExistingOpenFOAMCaseFolder=0
+export FYS_ExistingOpenFOAMCase="none"
+export FYS_numOpenSeesSubSteps=1
+export FYS_numOpenFOAMSubSteps=1
+export FYS_shmLocX="0.1"
+export FYS_shmLocY="0.1"
+export FYS_shmLocZ="0.1"

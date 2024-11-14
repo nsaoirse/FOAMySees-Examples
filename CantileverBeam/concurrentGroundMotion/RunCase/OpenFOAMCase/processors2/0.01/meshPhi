@@ -1,0 +1,124 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    object      meshPhi;
+    data.format     ascii;
+    data.class      surfaceScalarField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+1016
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       surfaceScalarField;
+    location    "0.01";
+    object      meshPhi;
+}
+dimensions      [0 3 -1 0 0 0 0];
+
+oriented        oriented;
+
+internalField   uniform 0;
+
+boundaryField
+{
+    leftWall
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    rightWall
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    interface
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    atmosphere
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    lowerWall
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    defaultFaces
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+)
+
+// processor1
+814
+(dimensions      [0 3 -1 0 0 0 0];
+
+oriented        oriented;
+
+internalField   uniform 0;
+
+boundaryField
+{
+    leftWall
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0();
+    }
+    rightWall
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    interface
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    atmosphere
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    lowerWall
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    defaultFaces
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+}
+)

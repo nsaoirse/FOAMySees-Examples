@@ -1,0 +1,114 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : d6df40a5e2-20240822 OPENFOAM=2406 version=v2406
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh
+Date   : Nov 14 2024
+Time   : 00:02:04
+Host   : nicolette-OptiPlex-9020
+PID    : 570542
+I/O    : uncollated
+Case   : /home/nicolette/Desktop/WorkingFiles/CantileverBeam/preliminaryGroundMotion/RunCase/OpenFOAMCase
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding DebugSwitches according to controlDict
+    level (unregistered)
+    lduMatrix       2;
+
+    libs (unregistered)
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    maxThreadFileBufferSize 1e+09;
+
+    maxMasterFileBufferSize 1e+09;
+
+Overriding fileHandler to collated
+I/O    : collated [threaded] (maxThreadFileBufferSize = 1e+09).
+         Requires buffer large enough to collect all data or MPI thread support.
+         To avoid MPI threading [slow], set (maxThreadFileBufferSize = 0) in
+         OpenFOAM etc/controlDict
+Creating block mesh from "system/blockMeshDict"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+
+Creating topology patches - from boundary section
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 4
+		Number of boundary faces : 22
+		Number of defined boundary faces : 22
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list (topological search)...
+Deleting polyMesh directory "constant/polyMesh"
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale (1 1 1)
+    Block 0 cell size :
+        i : 0.0033029 .. 0.00165145
+        j : 0.00333333 .. 0.00333333
+        k : 0.005 .. 0.005
+
+    Block 1 cell size :
+        i : 0.00440136 .. 0.00880272
+        j : 0.00333333 .. 0.00333333
+        k : 0.005 .. 0.005
+
+    Block 2 cell size :
+        i : 0.0033029 .. 0.00165145
+        j : 0.00411209 .. 0.00822417
+        k : 0.005 .. 0.005
+
+    Block 3 cell size :
+        i : 0.003 .. 0.003
+        j : 0.00411209 .. 0.00822417
+        k : 0.005 .. 0.005
+
+    Block 4 cell size :
+        i : 0.00440136 .. 0.00880272
+        j : 0.00411209 .. 0.00822417
+        k : 0.005 .. 0.005
+
+No patch pairs to merge
+
+Writing polyMesh with 0 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (-0.286 0 0) (0.298 0.365 0.01)
+  nPoints: 37014
+  nCells: 24144
+  nFaces: 85034
+  nInternalFaces: 59830
+----------------
+Patches
+----------------
+  patch 0 (start: 59830 size: 144) name: leftWall
+  patch 1 (start: 59974 size: 144) name: rightWall
+  patch 2 (start: 60118 size: 104) name: interface
+  patch 3 (start: 60222 size: 338) name: atmosphere
+  patch 4 (start: 60560 size: 330) name: lowerWall
+  patch 5 (start: 60890 size: 24144) name: defaultFaces
+
+End
+

@@ -3,7 +3,11 @@
 
 oneWay=1 # if this is 1, then the displacements calculated by OpenSees are not transferred to OpenFOAM
 #also..  # if this is 2, then the forces calculated by OpenFOAM are not transferred to OpenSees
-
+###########################################################################################################
+#### Coupling Settings #####
+# "Explicit" CouplingScheme="Explicit" #
+# "Implicit" CouplingScheme="Implicit" #
+CouplingScheme="Explicit" # this is a one-way simulation, there should be no issues with explicit coupling
 
 ############      NOTE : If FOAMySees if run 'as a part of HydroUQ', most if not all of these settings
 ############		will likely be overwritten! 
@@ -19,11 +23,21 @@ numOpenFOAMStepsPerCouplingTimestep=1
 
 #### Timing Settings #####
 ############ BOTH OpenFOAM and OpenSees
-SolutionDT=1e-4 # this is the coupling timestep length
-runPrelim='yes' # run the preliminary analysis defined (maybe remove this???)
+SolutionDT=1e-3 # this is the coupling timestep length
+runPrelim='yes' # run the preliminary analysis defined (maybe remove this??? it could just be defined in the opensees script itself!) i'll double check to see if this can be removed later -nsl, 11-11-24
 startOFSimAt=0.0
-endTime=1
+endTime=100
+couplingStartTime=0
+runSnappyHexMesh="No"
+###########################################################################################################
+###########################################################################################################
+###########################################################################################################
+#### OUTPUT SETTINGS ######
+#OpenFOAM Write Frequency
+writeDT=1 # seconds
 
+#OpenSeesPy Write Frequency
+SeesVTKOUTRate=1 # seconds
 
 
 ###########################################################################################################
@@ -67,10 +81,9 @@ DecompositionMethod="scotch"
 
 ###########################################################################################################
 ###########################################################################################################
-###########################################################################################################
-#### Coupling Settings #####
-CouplingScheme="Implicit" # "Explicit"
-CouplingScheme="Explicit" #
+
+
+# if implicit...
 timeWindowsReused=3		# number of past time windows used to approximate secant behavior
 iterationsReused=5		# number of iterations used to accelerate coupling data
 couplingConvergenceTol=5e-3     # coupling data relative residual convergence value
@@ -82,15 +95,7 @@ maximumCouplingIterations=100 #set this to a high value
 
 mapType='nearest-neighbor' #'rbf-thin-plate-splines'# either or - nearest-neighbor is faster, rbf is more robust...
 
-###########################################################################################################
-###########################################################################################################
-###########################################################################################################
-#### OUTPUT SETTINGS ######
-#OpenFOAM Write Frequency
-writeDT=0.1 # seconds
 
-#OpenSeesPy Write Frequency
-SeesVTKOUTRate=0.1 # seconds
 
 # This is to output data during the coupling iterations from preCICE library data transfers. Could help with debugging, but generally is best to leave as "No"
 outputDataFromCouplingIterations="No"

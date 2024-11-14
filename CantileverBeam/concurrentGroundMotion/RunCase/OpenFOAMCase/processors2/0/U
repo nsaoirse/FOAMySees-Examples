@@ -1,0 +1,119 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
+    class       decomposedBlockData;
+    location    "0";
+    object      U;
+    data.format ascii;
+    data.class  volVectorField;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+// processor0
+998
+(FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    leftWall
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    rightWall
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    interface
+    {
+        type            movingWallVelocity;
+        value           nonuniform List<vector> 0();
+    }
+    atmosphere
+    {
+        type            pressureInletOutletVelocity;
+        value           uniform (0 0 0);
+    }
+    lowerWall
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    defaultFaces
+    {
+        type            zeroGradient;
+    }
+    procBoundary0to1
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+}
+)
+
+// processor1
+815
+(dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+    leftWall
+    {
+        type            fixedValue;
+        value           nonuniform List<vector> 0();
+    }
+    rightWall
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    interface
+    {
+        type            movingWallVelocity;
+        value           uniform (0 0 0);
+    }
+    atmosphere
+    {
+        type            pressureInletOutletVelocity;
+        value           uniform (0 0 0);
+    }
+    lowerWall
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    defaultFaces
+    {
+        type            zeroGradient;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        value           uniform (0 0 0);
+    }
+}
+)

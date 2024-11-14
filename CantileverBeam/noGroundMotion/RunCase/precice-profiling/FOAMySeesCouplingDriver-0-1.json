@@ -1,0 +1,11 @@
+{
+  "meta":{
+  "name": "FOAMySeesCouplingDriver",
+  "rank": "0",
+  "size": "1",
+  "unix_us": "1731567142092243",
+  "tinit": "2024-11-13T22:52:22.243",
+  "mode": "fundamental"
+  },
+  "events":[
+  {"et":"n","en":"_GLOBAL","eid":0},{"et":"b","eid":0,"ts":0},{"et":"n","en":"construction","eid":1},{"et":"b","eid":1,"ts":33},{"et":"n","en":"configure","eid":2},{"et":"b","eid":2,"ts":39},{"et":"e","eid":2,"ts":3208},{"et":"n","en":"startProfilingBackend","eid":3},{"et":"e","eid":1,"ts":3410},{"et":"n","en":"solver.initialize","eid":4},{"et":"b","eid":4,"ts":3411},{"et":"e","eid":4,"ts":97683},{"et":"n","en":"initialize","eid":5},{"et":"b","eid":5,"ts":97686},{"et":"n","en":"preprocess.Coupling-Data-Projection-Mesh","eid":6},{"et":"n","en":"m2n.acceptPrimaryRankConnection.OpenFOAMCase","eid":7},{"et":"b","eid":7,"ts":97824},{"et":"e","eid":7,"ts":98998},{"et":"n","en":"partition.prepareMesh.Coupling-Data-Projection-Mesh","eid":8},{"et":"n","en":"partition.gatherMesh.Coupling-Data-Projection-Mesh","eid":9},{"et":"n","en":"partition.sendGlobalMesh.Coupling-Data-Projection-Mesh","eid":10},{"et":"n","en":"m2n.acceptSecondaryRanksConnection","eid":11},{"et":"n","en":"m2n.exchangeVertexDistribution","eid":12},{"et":"n","en":"m2n.broadcastVertexDistributions","eid":13},{"et":"n","en":"m2n.buildCommunicationMap","eid":14},{"et":"n","en":"m2n.createCommunications","eid":15},{"et":"e","eid":5,"ts":183867},{"et":"n","en":"solver.advance","eid":16},{"et":"b","eid":16,"ts":183903},{"et":"e","eid":16,"ts":230306},{"et":"n","en":"advance","eid":17},{"et":"b","eid":17,"ts":230309},{"et":"n","en":"m2n.receiveData","eid":18},{"et":"n","en":"m2n.sendData","eid":19},{"et":"e","eid":17,"ts":1568548},{"et":"b","eid":16,"ts":1568549},{"et":"e","eid":16,"ts":1569678},{"et":"b","eid":17,"ts":1569680},{"et":"e","eid":17,"ts":2885425},{"et":"b","eid":16,"ts":2885425},{"et":"e","eid":16,"ts":2886560},{"et":"b","eid":17,"ts":2886561},{"et":"e","eid":17,"ts":4159591},{"et":"b","eid":16,"ts":4159592},{"et":"e","eid":16,"ts":4160729},{"et":"b","eid":17,"ts":4160731},{"et":"e","eid":17,"ts":5416218},{"et":"b","eid":16,"ts":5416218},{"et":"e","eid":16,"ts":5417380},{"et":"b","eid":17,"ts":5417382},{"et":"e","eid":17,"ts":6678510}

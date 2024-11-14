@@ -1,0 +1,100 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       dictionary;
+    location    "0.006/uniform/functionObjects";
+    object      functionObjectProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+cdf7e925f5746741c316f5fbcf39ad0dfca90775
+{
+    interface
+    {
+        vector
+        {
+            pressureForce   ( 0.0013155 -0.000558944 0 );
+            viscousForce    ( 0.000199616 0.000661885 -1.61158e-13 );
+            internalForce   ( 0 0 0 );
+            pressureMoment  ( 2.79472e-06 6.57749e-06 6.20225e-06 );
+            viscousMoment   ( -3.30943e-06 9.980790000000001e-07 -1.15661e-05 );
+            internalMoment  ( 0 0 0 );
+        }
+    }
+    baseForces
+    {
+        vector
+        {
+            pressureForce   ( 0.0013155 -0.000558944 0 );
+            viscousForce    ( 0.000199616 0.000661885 -1.61158e-13 );
+            internalForce   ( 0 0 0 );
+            pressureMoment  ( 2.79472e-06 6.57749e-06 6.20225e-06 );
+            viscousMoment   ( -3.30943e-06 9.980790000000001e-07 -1.15661e-05 );
+            internalMoment  ( 0 0 0 );
+        }
+    }
+    storyForces
+    {
+        vector
+        {
+            pressureForce   ( 0.0013155 -0.000558944 0 );
+            viscousForce    ( 0.000199616 0.000661885 -1.61158e-13 );
+            internalForce   ( 0 0 0 );
+            pressureMoment  ( 2.79472e-06 6.57749e-06 6.20225e-06 );
+            viscousMoment   ( -3.30943e-06 9.980790000000001e-07 -1.15661e-05 );
+            internalMoment  ( 0 0 0 );
+        }
+    }
+}
+
+freeSurfaceVTK
+{
+    alpha.water
+    {
+        file            "<case>/postProcessing/freeSurfaceVTK/0.006/freeSurface.vtp";
+    }
+}
+
+XSec1
+{
+    alpha.water
+    {
+        file            "<case>/postProcessing/XSec1/0.006/interpolatedSurface.vtp";
+    }
+    p
+    {
+        file            "<case>/postProcessing/XSec1/0.006/interpolatedSurface.vtp";
+    }
+    U
+    {
+        file            "<case>/postProcessing/XSec1/0.006/interpolatedSurface.vtp";
+    }
+}
+
+structureInterface
+{
+    alpha.water
+    {
+        file            "<case>/postProcessing/structureInterface/0.006/interface.vtp";
+    }
+    p
+    {
+        file            "<case>/postProcessing/structureInterface/0.006/interface.vtp";
+    }
+    U
+    {
+        file            "<case>/postProcessing/structureInterface/0.006/interface.vtp";
+    }
+}
+
+
+// ************************************************************************* //

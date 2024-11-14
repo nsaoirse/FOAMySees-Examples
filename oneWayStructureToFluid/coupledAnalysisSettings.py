@@ -24,6 +24,8 @@ SolutionDT=1e-3 # this is the coupling timestep length
 runPrelim='yes' # run the preliminary analysis defined (maybe remove this???)
 startOFSimAt=0.0
 endTime=10
+couplingStartTime=0
+runSnappyHexMesh="No"
 ###########################################################################################################
 ###########################################################################################################
 #### OUTPUT SETTINGS ######

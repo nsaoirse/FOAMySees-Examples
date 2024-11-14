@@ -1,0 +1,135 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : d6df40a5e2-20240822 OPENFOAM=2406 version=v2406
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar -force -fileHandler uncollated -case OpenFOAMCase
+Date   : Nov 13 2024
+Time   : 23:59:54
+Host   : nicolette-OptiPlex-9020
+PID    : 570079
+I/O    : uncollated
+Case   : /home/nicolette/Desktop/WorkingFiles/CantileverBeam/concurrentGroundMotion/RunCase/OpenFOAMCase
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Overriding DebugSwitches according to controlDict
+    level (unregistered)
+    lduMatrix       2;
+
+    libs (unregistered)
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    maxThreadFileBufferSize 1e+09;
+
+    maxMasterFileBufferSize 1e+09;
+
+Overriding fileHandler to collated
+I/O    : collated [threaded] (maxThreadFileBufferSize = 1e+09).
+         Requires buffer large enough to collect all data or MPI thread support.
+         To avoid MPI threading [slow], set (maxThreadFileBufferSize = 0) in
+         OpenFOAM etc/controlDict
+
+
+Decomposing mesh
+
+Create mesh
+
+Calculating distribution of cells
+Decomposition method simple [2] (region region0)
+Selecting decompositionConstraint preservePatches
+preservePatches : adding constraints to keep owner and (coupled) neighbour of faces in patches 1(interface) on same processor. This only makes sense for cyclics and cyclicAMI.
+
+Finished decomposition in 0.02 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+Overriding DebugSwitches according to controlDict
+    level (unregistered)
+    lduMatrix       2;
+
+    libs (unregistered)
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    maxThreadFileBufferSize 1e+09;
+
+    maxMasterFileBufferSize 1e+09;
+
+
+Processor 0
+    Number of cells = 12072
+    Number of points = 18579
+    Number of faces shared with processor 1 = 146
+    Number of processor patches = 1
+    Number of processor faces = 146
+    Number of boundary faces = 12550
+Overriding DebugSwitches according to controlDict
+    level (unregistered)
+    lduMatrix       2;
+
+    libs (unregistered)
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    maxThreadFileBufferSize 1e+09;
+
+    maxMasterFileBufferSize 1e+09;
+
+
+Processor 1
+    Number of cells = 12072
+    Number of points = 18657
+    Number of faces shared with processor 0 = 146
+    Number of processor patches = 1
+    Number of processor faces = 146
+    Number of boundary faces = 12654
+
+Number of processor faces = 146
+Max number of cells = 12072 (0% above average 12072)
+Max number of processor patches = 1 (0% above average 1)
+Max number of faces between processors = 146 (0% above average 146)
+
+Time = 0
+
+Processor 0: field transfer
+Overriding DebugSwitches according to controlDict
+    level (unregistered)
+    lduMatrix       2;
+
+    libs (unregistered)
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    maxThreadFileBufferSize 1e+09;
+
+    maxMasterFileBufferSize 1e+09;
+
+Processor 1: field transfer
+Overriding DebugSwitches according to controlDict
+    level (unregistered)
+    lduMatrix       2;
+
+    libs (unregistered)
+Overriding OptimisationSwitches according to controlDict
+    fileHandler (unregistered)
+    maxThreadFileBufferSize 1e+09;
+
+    maxMasterFileBufferSize 1e+09;
+
+
+End
+

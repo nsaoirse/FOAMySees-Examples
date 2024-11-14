@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<precice-configuration>
+	<log>
+
+	</log>
+	<data:vector name="Force" />
+	<data:vector name="Displacement" />
+
+	<mesh name="OpenFOAM-Mesh" dimensions="3">
+		<use-data name="Displacement" />
+		<use-data name="Force" />
+	</mesh>
+
+	<mesh name="Coupling-Data-Projection-Mesh" dimensions="3">
+		<use-data name="Displacement" />
+		<use-data name="Force" />
+	</mesh>
+
+	<participant name="FOAMySeesCouplingDriver">
+	
+		<provide-mesh name="Coupling-Data-Projection-Mesh"/>
+		<write-data name="Displacement" mesh="Coupling-Data-Projection-Mesh" />
+		<read-data name="Force" mesh="Coupling-Data-Projection-Mesh" />
+	</participant>
+		
+	<participant name="OpenFOAMCase">
+					
+	
+		<receive-mesh name="Coupling-Data-Projection-Mesh" from="FOAMySeesCouplingDriver" />
+		<provide-mesh name="OpenFOAM-Mesh" />
+		<write-data name="Force" mesh="OpenFOAM-Mesh" />
+		<read-data name="Displacement" mesh="OpenFOAM-Mesh" />
+		<mapping:nearest-neighbor
+		direction="write"
+		from="OpenFOAM-Mesh"
+		to="Coupling-Data-Projection-Mesh"
+		constraint="conservative" />
+		<mapping:nearest-neighbor
+		direction="read"
+		from="Coupling-Data-Projection-Mesh"
+		to="OpenFOAM-Mesh"
+		constraint="consistent" />
+	</participant>
+	<m2n:sockets acceptor="OpenFOAMCase" connector="FOAMySeesCouplingDriver" exchange-directory="."/>
+				 
+			<coupling-scheme:parallel-explicit>
+				<time-window-size value="0.0001" />
+				<max-time value="1"/>
+				<participants first="OpenFOAMCase" second="FOAMySeesCouplingDriver"/>
+			<exchange data="Force" mesh="Coupling-Data-Projection-Mesh" from="OpenFOAMCase" to="FOAMySeesCouplingDriver" />
+			<exchange data="Displacement" mesh="Coupling-Data-Projection-Mesh" from="FOAMySeesCouplingDriver" to="OpenFOAMCase" />
+				
+			</coupling-scheme:parallel-explicit>
+	</precice-configuration>
+		
