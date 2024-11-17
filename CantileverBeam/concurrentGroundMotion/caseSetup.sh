@@ -1,6 +1,6 @@
 export FYS_inputFilesLocation="fromUser"
 export FYS_OpenSeesPyModelFile="OpenSeesModel.py"
-export FYS_Nprocessors=2
+export FYS_Nprocessors=1
 export FYS_OpenFOAMSolver="interFoam"
 export FYS_isPartOfHydro="No"
 export FYS_nameOfCoupledPatchOrSurfaceFile="interface"

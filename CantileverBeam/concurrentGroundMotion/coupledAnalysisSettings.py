@@ -1,5 +1,29 @@
 
 
+
+###########################################################################################################
+###########################################################################################################
+# /*--------------------------------*- C++ -*----------------------------------*\
+# | =========                                               ____/_________\____     _.*_*.             |
+# | \\      /      F ield           |   |  S tructural      ||__|/\|___|/\|__||      \ \ \\.           |
+# |  \\    /       O peration       |___|  E ngineering &   ||__|/\|___|/\|__||       | | | \._        |
+# |   \\  /        A nd                 |  E arthquake      ||__|/\|___|/\|__||      _/_/_/ | .\.__... |
+# |    \\/         M anipulation    |___|  S imulation      ||__|/\|___|/\|__||   __/, / _ \___...     |
+# |_________________________________________________________||  |/\| | |/\|  ||__/,_/__,_____/...______|
+	# \*---------------------------------------------------------------------------*/
+
+# The work within this thesis was funded by the National Science Foundation (NSF) and Joy Pauschke (program manager) through Grants CMMI-1726326, CMMI-1933184, and CMMI-2131111. 
+# Thank you to NHERI Computational Modeling and Simulation Center (SimCenter), as well as their developers, funding sources, and staff for their continued support. 
+# It was a great experience to work with the SimCenter to implement this tool allowing for partitioned coupling of OpenSees and OpenFOAM as part of a digital-twin module within the NHERI SimCenter Hydro-UQ framework.
+# Much of the development work of the research tool presented was conducted using University of Washington's HYAK Supercomputing resources. 
+# Thank you to UW HYAK and to the support staff of the UW HPC resources for their maintenance of the supercomputer cluster and for offering a stable platform for HPC development 
+# and computation, as well as for all of the great support over the last few years.  
+
+
+
+###########################################################################################################
+###########################################################################################################
+
 oneWay=0 # if this is 1, then the displacements calculated by OpenSees are not transferred to OpenFOAM
 #also..  # if this is 2, then the forces calculated by OpenFOAM are not transferred to OpenSees
 
@@ -16,15 +40,13 @@ oneWay=0 # if this is 1, then the displacements calculated by OpenSees are not t
 numOpenSeesStepsPerCouplingTimestep=1
 numOpenFOAMStepsPerCouplingTimestep=1
 
-
-
 #### Timing Settings #####
 ############ BOTH OpenFOAM and OpenSees
-SolutionDT=1e-4 # this is the coupling timestep length
-runPrelim='yes' # run the preliminary analysis defined (maybe remove this???)
+SolutionDT=5e-3 # this is the coupling timestep length
 startOFSimAt=0.0
 endTime=1
-couplingStartTime=0.2
+runSnappyHexMesh="No"
+couplingStartTime=0.05
 
 
 ###########################################################################################################
@@ -39,8 +61,8 @@ g=[0,0,-9.81]
 ###########################################################################################################
 OpenSeesconvergenceTol=1e-8
 #'EnergyIncr', Tol, maxNumIter
-Test=["NormUnbalance",1e-8,1000]
-Integration=["Newton",0.5,0.25]
+Test=["NormUnbalance",OpenSeesconvergenceTol,1000]
+Integration=["Newmark",0.5,0.25]
 Algorithm="KrylovNewton"
 OpenSeesSystem='BandGen'
 OpenSeesConstraints='Transformation'
@@ -70,6 +92,8 @@ DecompositionMethod="scotch"
 ###########################################################################################################
 ###########################################################################################################
 #### Coupling Settings #####
+
+#CouplingScheme="Explicit" #
 CouplingScheme="Implicit" # "Explicit"
 timeWindowsReused=3		# number of past time windows used to approximate secant behavior
 iterationsReused=5		# number of iterations used to accelerate coupling data
@@ -87,37 +111,14 @@ mapType='nearest-neighbor' #'rbf-thin-plate-splines'# either or - nearest-neighb
 ###########################################################################################################
 #### OUTPUT SETTINGS ######
 #OpenFOAM Write Frequency
-writeDT=0.1 # seconds
+writeDT=0.01 # seconds
 
 #OpenSeesPy Write Frequency
-SeesVTKOUTRate=0.1 # seconds
+SeesVTKOUTRate=0.01 # seconds
 
 # This is to output data during the coupling iterations from preCICE library data transfers. Could help with debugging, but generally is best to leave as "No"
 outputDataFromCouplingIterations="No"
 couplingIterationOutputDataFrequency="1000"
-
-###########################################################################################################
-###########################################################################################################
-# /*--------------------------------*- C++ -*----------------------------------*\
-# | =========                                               ____/_________\____     _.*_*.             |
-# | \\      /      F ield           |   |  S tructural      ||__|/\|___|/\|__||      \ \ \\.           |
-# |  \\    /       O peration       |___|  E ngineering &   ||__|/\|___|/\|__||       | | | \._        |
-# |   \\  /        A nd                 |  E arthquake      ||__|/\|___|/\|__||      _/_/_/ | .\.__... |
-# |    \\/         M anipulation    |___|  S imulation      ||__|/\|___|/\|__||   __/, / _ \___...     |
-# |_________________________________________________________||  |/\| | |/\|  ||__/,_/__,_____/...______|
-	# \*---------------------------------------------------------------------------*/
-
-# The work within this thesis was funded by the National Science Foundation (NSF) and Joy Pauschke (program manager) through Grants CMMI-1726326, CMMI-1933184, and CMMI-2131111. 
-# Thank you to NHERI Computational Modeling and Simulation Center (SimCenter), as well as their developers, funding sources, and staff for their continued support. 
-# It was a great experience to work with the SimCenter to implement this tool allowing for partitioned coupling of OpenSees and OpenFOAM as part of a digital-twin module within the NHERI SimCenter Hydro-UQ framework.
-# Much of the development work of the research tool presented was conducted using University of Washington's HYAK Supercomputing resources. 
-# Thank you to UW HYAK and to the support staff of the UW HPC resources for their maintenance of the supercomputer cluster and for offering a stable platform for HPC development 
-# and computation, as well as for all of the great support over the last few years.  
-
-
-
-###########################################################################################################
-###########################################################################################################
 
 
 # Set fixity options
