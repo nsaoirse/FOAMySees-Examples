@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<VTKFile type="Collection" compressor="vtkZLibDataCompressor">
-  <Collection>
-    <DataSet timestep="1.0000e-04" group="" part="0" file="SeesoutPrelim/SeesoutPrelim_T1.0000e-04_P0.vtu"/>
-    <DataSet timestep="1.0000e-04" group="" part="1" file="SeesoutPrelim/SeesoutPrelim_T1.0000e-04_P1.vtu"/>
-    <DataSet timestep="1.0100e-02" group="" part="0" file="SeesoutPrelim/SeesoutPrelim_T1.0100e-02_P0.vtu"/>
-    <DataSet timestep="1.0100e-02" group="" part="1" file="SeesoutPrelim/SeesoutPrelim_T1.0100e-02_P1.vtu"/>
-  </Collection>
-</VTKFile>
