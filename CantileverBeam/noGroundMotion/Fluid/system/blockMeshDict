@@ -50,11 +50,11 @@ vertices
 );
 
 // Grading
-h1 120;
-h2 4;
-h3 45;
-v1 24;
-v2 48;
+h1 60;
+h2 2;
+h3 20;
+v1 12;
+v2 24;
 
 blocks
 (

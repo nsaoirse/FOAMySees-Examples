@@ -42,12 +42,12 @@ numOpenFOAMStepsPerCouplingTimestep=1
 
 #### Timing Settings #####
 ############ BOTH OpenFOAM and OpenSees
-SolutionDT=5e-3 # this is the coupling timestep length
-runPrelim='yes' # run the preliminary analysis defined (maybe remove this???)
+SolutionDT=1e-3 # this is the coupling timestep length
+runPrelim='no' # run the preliminary analysis defined (maybe remove this???)
 startOFSimAt=0.0
 endTime=1
 runSnappyHexMesh="No"
-couplingStartTime=0.05
+couplingStartTime=0.00
 
 
 ###########################################################################################################
@@ -60,17 +60,17 @@ g=[0,0,-9.81]
 ###########################################################################################################
 ###########################################################################################################
 ###########################################################################################################
-OpenSeesconvergenceTol=1e-8
+OpenSeesconvergenceTol=1e-12
 #'EnergyIncr', Tol, maxNumIter
 Test=["NormUnbalance",OpenSeesconvergenceTol,1000]
 Integration=["Newmark",0.5,0.25]
 Algorithm="KrylovNewton"
 OpenSeesSystem='BandGen'
-OpenSeesConstraints='Transformation'
+OpenSeesConstraints='Plain'
 Numberer='RCM'
 OSndm=3
 OSndf=6
-Analysis=["VariableTransient","-numSubLevels",2,"-numSubSteps",10]
+Analysis=["VariableTransient","-numSubLevels",2,"-numSubSteps",1000]
 
 ###########################################################################################################
 ###########################################################################################################
@@ -99,7 +99,7 @@ CouplingScheme="Implicit" # "Explicit"
 timeWindowsReused=3		# number of past time windows used to approximate secant behavior
 iterationsReused=5		# number of iterations used to accelerate coupling data
 couplingConvergenceTol=5e-3     # coupling data relative residual convergence value
-initialRelaxationFactor=0.1     # initial relaxation factor used in dynamic relaxation scheme
+initialRelaxationFactor=0.9     # initial relaxation factor used in dynamic relaxation scheme
 
 couplingDataAccelerationMethod="IQN-ILS" #Constant Aitken IQN-IMVJ Broyden
 
